@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💖 A Surprise for You</title>
+  <style>
+    body { background: #f7f4f4; font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    .page { display: none; }
+    .active { display: block; }
+    button { padding: 10px 20px; font-size: 1rem; margin: 10px; cursor: pointer; }
+    #popup { position: fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);color:#fff;
+             display:flex;flex-direction:column;justify-content:center;align-items:center; }
+    img { max-width: 90%; height: auto; border-radius: 10px; margin-top: 20px; }
+    .message { max-width: 600px; margin: 30px auto; text-align: left; line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+<!-- Page 1: Popup -->
+<div id="popup">
+  <p style="font-size:1.5rem">Don’t even think of closing this 😏</p>
+  <div>
+    <button onclick="goToPage(2)">Open</button>
+    <button onclick="goToPage(2)">Close</button>
+  </div>
+</div>
+
+<!-- Page 2: Rick Roll -->
+<div id="page2" class="page">
+  <audio id="rick" autoplay>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/RickRoll.mp3" type="audio/mpeg">
+  </audio>
+  <h2>I didn’t want to do it uninteresting.<br>Btw, press Next 👉</h2>
+  <button onclick="goToPage(3)">Next</button>
+</div>
+
+<!-- Page 3: Photo + Arctic Monkeys -->
+<div id="page3" class="page">
+  <audio id="anthem" autoplay>
+    <source src="https://cdn.simplemp3.org/mp3/Arctic_Monkeys_-_No._1_Party_Anthem.mp3" type="audio/mpeg">
+  </audio>
+  <img src="your_photo.jpg" alt="Your Friend">
+  <h2>You look like this image 🎀🎀</h2>
+  <button onclick="goToPage(4)">Next</button>
+</div>
+
+<!-- Page 4: Final Message -->
+<div id="page4" class="page">
+  <button id="playFinal">▶️ Play Something About You</button>
+  <audio id="finalSong">
+    <source src="https://cdn.simplemp3.org/mp3/Eyedress_-_Something_About_You.mp3" type="audio/mpeg">
+  </audio>
+  <div class="message">
+    <p>I don’t even know where to start…</p>
+    <p>It was back in the late days of Class 7. I was just scrolling on Instagram when I got a notification — a follow request. Out of curiosity, I checked… and it was **you**.</p>
+    <p>I saw your profile picture — and it hit different. It felt like **that song**, “She looks just like a dream,” was written for that moment.</p>
+    <p>You looked different. You looked… beautiful.</p>
+    <p>I even told a friend about you. He told me your name — and from that day, something began. I’m not a stalker, promise 😅… but somehow, my eyes would always find you.</p>
+    <p>That feeling grew through Class 8 and into 9. I don’t know why, but I think I became obsessed — not in a bad way, but because I admired you deeply.</p>
+    <p>Still, I never approached you. I didn’t want to disturb you or make things awkward.</p>
+    <p>But one day, a friend tricked me — sent me a link and got me to write your name. That’s how the letters started. I know it might’ve been uncomfortable.</p>
+    <p>I never meant it. When we finally talked… I was nervous, anxious, and too excited. I said silly things and it got awkward—and then you ghosted me.</p>
+    <p>But I had predicted it.</p>
+    <p>Still, I’m grateful. You’re someone I’ll always remember — not because it was dramatic, but because you made even quiet moments feel special.</p>
+  </div>
+</div>
+
+<script>
+  function goToPage(n) {
+    document.getElementById('popup').style.display = 'none';
+    ['page2','page3','page4'].forEach(id =>
+      document.getElementById(id).classList.remove('active')
+    );
+    document.getElementById('page' + n).classList.add('active');
+  }
+  document.getElementById('playFinal').addEventListener('click', () => {
+    document.getElementById('finalSong').play();
+  });
+</script>
+
+</body>
+</html>
